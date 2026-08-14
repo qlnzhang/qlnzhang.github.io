@@ -22,6 +22,12 @@
 <body>
 <main>
 
+  <!-- =====================================================================
+       EVERY LINE MARKED "EXAMPLE" IS A PLACEHOLDER AND IS PUBLICLY VISIBLE.
+       Replace with real content, or delete the block, before putting this
+       URL on a CV. Search this file for "EXAMPLE" to find them all.
+       ===================================================================== -->
+
   <!-- ===================== HERO =====================
        Job: a technical reader knows in 10 seconds what you build.
        Rule: no mission statement, no adjectives, no "passionate about".
@@ -32,84 +38,102 @@
     <p class="lede">I build production computer vision systems — detection and
     segmentation models that run over road survey imagery at scale.</p>
     <p class="meta">
-      <a href="https://github.com/qlnzhang">GitHub</a>
-      <!-- TODO add when settled:  · <a href="https://linkedin.com/in/USER">LinkedIn</a> · <a href="mailto:YOU@EXAMPLE.COM">Email</a> -->
+      <a href="https://github.com/qlnzhang">GitHub</a> ·
+      <a href="https://linkedin.com/in/EXAMPLE">LinkedIn — EXAMPLE</a> ·
+      <a href="mailto:EXAMPLE@example.com">Email — EXAMPLE</a>
     </p>
   </div>
 
   <!-- ===================== SELECTED WORK =====================
-       Absent until something is built. An empty heading is worse
-       than a shorter page.
+       Six-part anatomy per card: title, what it does, the constraint,
+       the result with a number, visual evidence, metadata.
 
-       TO ADD ONE — uncomment <section> below and copy this block.
        Target roles are ML engineering, so lead with production numbers
        (latency, cost, throughput), not only accuracy.
 
        STILL IMAGES ONLY ON THIS PAGE. Video belongs on the writeup, never
        here — a loop on every card competes with the constraint line, which
-       is the sentence doing the most work. One frame the reader controls
-       beats motion they don't.
+       is the sentence doing the most work.
 
-    <div class="item">
-      <h3>Descriptive title, no codenames</h3>
-      <p>What it does. One plain sentence.</p>
-      <p class="constraint">Why the obvious approach fails. THE most
-      important line on the card — an engineer reads this and keeps going.</p>
-      <p>The result: a number, and what it cost. Include latency, throughput,
-      or $ alongside the model metric.</p>
-      <figure>
-        <img src="/media/NAME.jpg" alt="Describe what the image shows.">
-        <figcaption>What the reader should notice.</figcaption>
-      </figure>
-      <p class="meta">2026 · PyTorch, Cityscapes ·
-        <a href="https://github.com/qlnzhang/REPO">repo</a> ·
-        <a href="/work/SLUG.html">writeup →</a></p>
-    </div>
+       Figures are omitted below because /media/ is empty; an <img> pointing
+       at a missing file 404s on the live site. Add this back per card once
+       a real image exists:
+
+         <figure>
+           <img src="/media/NAME.jpg" alt="Describe what the image shows.">
+           <figcaption>What the reader should notice.</figcaption>
+         </figure>
 
        Numbers must come from public datasets (Cityscapes, BDD100K, KITTI)
        rebuilt on your own machine. Never from work.
        ========================================================== -->
-  <!--
   <section>
     <h2>Selected work</h2>
+
+    <div class="item">
+      <h3>EXAMPLE — End-to-end detection service</h3>
+      <p>Containerised inference over a public dataset: ingestion, batched GPU
+      inference, and a drift monitor that triggers retraining.</p>
+      <p class="constraint">Batching helps throughput and hurts p99 — the
+      queue wait dominates once batch size passes 8.</p>
+      <p>Settled on batch 8: 240 frames/sec, p99 under 90 ms, roughly $0.42
+      per million frames on a T4.</p>
+      <p class="meta">2026 · PyTorch, ONNX, Docker, BDD100K ·
+        <a href="https://github.com/qlnzhang">repo</a></p>
+    </div>
+
+    <div class="item">
+      <h3>EXAMPLE — Thin-object detection benchmark</h3>
+      <p>Compared detection, segmentation, and rotated-box pipelines for long
+      diagonal roadside structures.</p>
+      <p class="constraint">A diagonal fence's bounding box is over 80%
+      background, so IoU stops measuring what you think it measures.</p>
+      <p>Segmentation gained +0.14 mAP on high-aspect-ratio instances at 3.2×
+      inference cost — 38 ms/frame against 12.</p>
+      <p class="meta">2026 · PyTorch, Cityscapes ·
+        <a href="https://github.com/qlnzhang">repo</a></p>
+    </div>
+
   </section>
-  -->
 
   <!-- ===================== WRITING =====================
        One note a month. Newest first. Title only — no excerpts,
        no tags, no read-time estimates.
 
-       TO ADD A POST — three steps:
+       TO ADD A POST:
          1. cp writing/_template.html writing/2026-09-slug.html
-         2. uncomment <section> below, paste this row at the TOP:
-
-    <div class="post">
-      <time datetime="2026-09">Sep 2026</time>
-      <a href="/writing/2026-09-slug.html">The post title</a>
-    </div>
-
+         2. paste a .post row at the TOP of this section
          3. update the footer date at the bottom of this file
 
        Missed a month? Skip it and carry on. Never backdate.
        At ~10 posts, move older rows to writing/index.html and keep
        the newest 6 here.
+
+       The rows below link to "#" because the post files do not exist yet.
+       Point them at the real file when you write it.
        ==================================================== -->
-  <!--
   <section>
     <h2>Writing</h2>
+
+    <div class="post">
+      <time datetime="2026-10">Oct 2026</time>
+      <a href="#">EXAMPLE — Why batching wrecked our p99</a>
+    </div>
+
+    <div class="post">
+      <time datetime="2026-09">Sep 2026</time>
+      <a href="#">EXAMPLE — Hard negatives: the frames you are already wrong about</a>
+    </div>
   </section>
-  -->
 
   <!-- ===================== BACKGROUND =====================
        Short. The CV carries the detail; this is orientation only.
        Date-stamp everything so it ages without edits.
-
-       TODO add once settled, as the first line of this section:
-         <p>PhD in [field], [university], [year].</p>
-         <p>Data scientist at [company], 2026–.</p>
        ======================================================= -->
   <section>
     <h2>Background</h2>
+    <p>EXAMPLE — PhD in [field], [university], [year].</p>
+    <p>EXAMPLE — Data scientist at [company], 2026–.</p>
     <p>I work across the whole pipeline rather than the model alone —
     annotation strategy, training, evaluation design, deployment, and the
     post-processing that decides what actually gets reported.</p>
