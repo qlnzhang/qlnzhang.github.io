@@ -38,6 +38,26 @@
       <img src="/media/[name].jpg" alt="[Describe what the image shows, for screen readers and for when the image fails to load.]">
       <figcaption>[What the reader should notice in this figure.]</figcaption>
     </figure>
+
+    <!-- VIDEO — this is the page where motion belongs, not the index.
+         Use it ONLY when motion IS the content: tracking across frames,
+         occlusion recovery, temporal jitter before/after. If one frame
+         conveys it, a still is better — the reader controls how long
+         they look.
+
+         MP4/H.264 only. Never GIF: ~15-20x the file size for worse
+         quality, and 256 colours band badly on road imagery.
+         Under 3 MB, under 10s, no audio track, always a poster.
+
+         ffmpeg -i in.mov -t 8 -an -vf "scale=800:-2" \
+                -c:v libx264 -crf 26 -movflags +faststart out.mp4
+
+    <figure>
+      <video src="/media/[name].mp4" poster="/media/[name].jpg"
+             autoplay muted loop playsinline></video>
+      <figcaption>[What to notice in the motion.]</figcaption>
+    </figure>
+    -->
   </section>
 
   <!-- ===== 3. APPROACH ===== -->

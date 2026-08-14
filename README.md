@@ -42,9 +42,23 @@ opening `index.html` directly via `file://` breaks the absolute paths like
 
 Goes in `/media/`. Images under 400 KB, video under 3 MB, total budget ~8 MB.
 
-Video only when motion is the actual content — tracking, temporal smoothing,
-frame-to-frame behaviour. Otherwise a still image is better in every way.
-MP4/H.264, muted, looping, with a `poster` fallback image. Never embed YouTube.
+**Stills on `index.html`, video only on `/work/` and `/writing/` pages.** The
+index is a 60-second scan; a loop on every card competes with the constraint
+line, which is the sentence doing the most hiring work. The reader who wants
+to see it move will click through.
+
+Video only when motion is the actual content — tracking, occlusion recovery,
+temporal jitter. If a single frame conveys it, motion is decoration and a
+still is better in every way.
+
+MP4/H.264, muted, looping, with a `poster` fallback image. Never embed
+YouTube. **Never GIF** — roughly 15-20x the file size for worse quality, and
+a 256-colour palette bands visibly on road imagery.
+
+```
+ffmpeg -i in.mov -t 8 -an -vf "scale=800:-2" -c:v libx264 -crf 26 \
+       -movflags +faststart out.mp4
+```
 
 ## Before you publish anything
 
@@ -55,11 +69,22 @@ MP4/H.264, muted, looping, with a `poster` fallback image. Never embed YouTube.
 
 ## Rhythm
 
-Roughly four hours a month, one Sunday afternoon:
+One note a month. Roughly two hours, one Sunday afternoon:
 
-- Months 1, 4, 7, 10 — deep post (1500-2500 words)
-- Months 2, 5, 8, 11 — short note (400-800 words)
-- Months 3, 6, 9, 12 — no post; polish a repo, ship a tool update
+1. Open the brag doc, pick the most interesting thing solved this month
+2. `cp writing/_template.html writing/YYYY-MM-slug.html`
+3. Write 400-800 words: symptom → investigation → root cause → fix →
+   result → what I'd do differently
+4. Add one figure or table — a note with no evidence is an opinion piece
+5. Add a `.post` row at the top of the Writing section in `index.html`
+6. Update the footer date, commit, push
+
+Keep them short. The failure mode is deciding each note must be an essay,
+missing month four, and never restarting. Twelve short notes beat three
+polished ones and nine months of silence.
+
+Missed a month? Skip it and carry on. Never backdate — a visible gap costs
+nothing, a fabricated timeline costs everything.
 
 Source material comes from the brag doc, not from brainstorming topics.
 Trying to invent topics produces tutorial content. Reviewing what you
