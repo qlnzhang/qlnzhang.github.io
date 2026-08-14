@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>[Post title] — Qilin Zhang</title>
+<meta name="description" content="[One sentence — shows in search results and link previews.]">
+<link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+<main>
+
+  <a class="back" href="/">← index</a>
+
+  <h1>[Post title]</h1>
+  <p class="meta">August 2026</p>
+
+  <!-- ======================================================================
+       STRUCTURE THAT WORKS FOR ALMOST EVERY TECHNICAL POST:
+
+         1. symptom       what went wrong, concretely — start HERE
+         2. investigation what you checked, what you ruled out
+         3. root cause    the actual explanation
+         4. fix           what you did, with a code excerpt
+         5. result        before/after numbers, a figure
+         6. reflection    what you would do differently
+
+       OPENING RULE — do not warm up. Compare:
+
+         Weak:   "Object detection is an important task in computer
+                  vision. In recent years, many approaches..."
+
+         Strong: "Our detector kept firing on guardrails on the opposite
+                  side of the road. Same class, same appearance, entirely
+                  wrong. Here is how I found out why."
+
+       The second earns the next paragraph. The first sounds like every
+       tutorial ever written.
+
+       LENGTH: 1500-2500 words for a quarterly deep post,
+               400-800 for a short note. Both are fine. Half-finished
+               is not.
+       ====================================================================== -->
+
+  <section style="margin-top:3rem">
+    <p class="lede">[Opening. State the symptom or the surprise in the first
+    two sentences. No preamble.]</p>
+  </section>
+
+  <section>
+    <h2>[Section heading]</h2>
+    <p>[Body.]</p>
+
+    <figure>
+      <img src="/media/[name].jpg" alt="[Describe the content for screen readers.]">
+      <figcaption>[What to notice.]</figcaption>
+    </figure>
+  </section>
+
+  <section>
+    <h2>[Section heading]</h2>
+    <p>[Body.]</p>
+    <pre><code>[Code excerpt — the interesting part only.]</code></pre>
+  </section>
+
+  <!-- VIDEO — only when motion IS the content (tracking, temporal smoothing,
+       frame-to-frame state behaviour). Otherwise use a still image.
+       Rules: MP4/H.264, under 3 MB, under 10s, no audio, poster fallback.
+       Never embed YouTube — external dependency, tracking, breaks over time.
+
+  <figure>
+    <video src="/media/[name].mp4" poster="/media/[name].jpg"
+           autoplay muted loop playsinline></video>
+    <figcaption>[What to notice in the motion.]</figcaption>
+  </figure>
+  -->
+
+  <section>
+    <h2>What I'd do differently</h2>
+    <p>[The honest bit.]</p>
+  </section>
+
+  <footer>
+    <p>August 2026 · <a href="/">back to index</a></p>
+  </footer>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ===========================================================================
+   Shared stylesheet. Every page links this file.
+   Change design here once, it applies everywhere. Do not inline styles
+   into individual pages — that is how a site becomes unmaintainable.
+   =========================================================================== */
+
+:root {
+  --paper:  #FAFAF8;
+  --ink:    #14171A;
+  --muted:  #63696F;
+  --rule:   #E4E5E2;
+  --accent: #0C6E5D;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101315; --ink: #E8EAE7; --muted: #8B9299;
+    --rule: #262A2D; --accent: #4FB8A3;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 17px/1.65 var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+main { max-width: 660px; margin: 0 auto; padding: 8vh 24px 12vh; }
+
+a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+a:hover { background: var(--accent); color: var(--paper); border-color: transparent; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* --- SIGNATURE ELEMENT -----------------------------------------------------
+   Corner brackets borrowed from detection-overlay visual language.
+   This is the one decorative element on the site. Do not add others.
+   -------------------------------------------------------------------------- */
+.frame { position: relative; padding: 28px 26px; margin: 0 0 4rem; }
+.frame::before, .frame::after {
+  content: ""; position: absolute; width: 14px; height: 14px;
+  border: 1.5px solid var(--accent);
+}
+.frame::before { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.frame::after  { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+
+/* --- typography ----------------------------------------------------------- */
+h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin: 0 0 12px; }
+
+h2 {
+  font: 400 11px/1 var(--mono); letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 20px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+}
+
+h3 { font-size: 17px; font-weight: 600; margin: 0 0 6px; }
+
+p { margin: 0 0 1.1rem; }
+.lede { font-size: 19px; line-height: 1.55; }
+.dim  { color: var(--muted); }
+
+.label {
+  font: 400 11px/1 var(--mono); letter-spacing: 0.09em; text-transform: uppercase;
+  color: var(--muted); display: block; margin-bottom: 14px;
+}
+
+.meta { font: 400 12.5px/1.6 var(--mono); color: var(--muted); }
+
+section { margin-bottom: 3.5rem; }
+
+/* --- project cards on the index ------------------------------------------- */
+.item { margin-bottom: 2.4rem; }
+.item p { margin-bottom: 8px; }
+
+/* The constraint line — the most important sentence in each card.
+   Marked with a rule so the eye lands on it. */
+.constraint {
+  border-left: 2px solid var(--accent);
+  padding-left: 14px;
+  margin: 0 0 10px;
+}
+
+/* --- writing list --------------------------------------------------------- */
+.post { display: flex; gap: 18px; padding: 11px 0; border-bottom: 1px solid var(--rule); }
+.post time { font: 400 12.5px/1.7 var(--mono); color: var(--muted); flex: 0 0 78px; }
+
+/* --- media ---------------------------------------------------------------- */
+figure { margin: 1.6rem 0; }
+figure img, figure video { width: 100%; height: auto; display: block; border-radius: 3px; }
+figcaption { font: 400 12.5px/1.6 var(--mono); color: var(--muted); margin-top: 8px; }
+
+/* --- code ----------------------------------------------------------------- */
+pre {
+  background: var(--rule); padding: 16px; border-radius: 4px;
+  overflow-x: auto; font: 400 13.5px/1.6 var(--mono); margin: 1.4rem 0;
+}
+code { font: 400 0.9em var(--mono); }
+p code { background: var(--rule); padding: 1px 5px; border-radius: 3px; }
+
+/* --- tables --------------------------------------------------------------- */
+table { width: 100%; border-collapse: collapse; margin: 1.4rem 0; font-size: 15px; }
+th, td { text-align: left; padding: 9px 12px 9px 0; border-bottom: 1px solid var(--rule); }
+th { font: 400 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+td.num { font-family: var(--mono); font-size: 13.5px; }
+
+/* --- back link on subpages ------------------------------------------------ */
+.back { font: 400 12.5px/1 var(--mono); display: inline-block; margin-bottom: 2.5rem; }
+
+footer { margin-top: 5rem; padding-top: 20px; border-top: 1px solid var(--rule); }
+footer p { font: 400 12.5px/1.7 var(--mono); color: var(--muted); margin: 0; }
+
+/* --- responsive ----------------------------------------------------------- */
+@media (max-width: 560px) {
+  body { font-size: 16px; }
+  main { padding: 5vh 20px 8vh; }
+  h1 { font-size: 25px; }
+  .post { flex-direction: column; gap: 2px; }
+  .frame { padding: 24px 20px; }
+}
+
+@media print {
+  .frame::before, .frame::after { display: none; }
+  a { border: 0; color: var(--ink); }
+  video { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
